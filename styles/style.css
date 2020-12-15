@@ -1,0 +1,63 @@
+body {
+  background-color: #bca7c7;
+}
+body .first-form {
+  height: 100vh;
+}
+body .sign-up {
+  min-width: 430px;
+}
+body form {
+  border-radius: 5px;
+  background-color: #ffff;
+  padding: 20px 40px 20px 40px;
+  display: inline-block;
+}
+body form .input-success {
+  border: 2px solid green;
+}
+body form .input-error {
+  border: 2px solid red;
+}
+body form .form-wraper {
+  position: relative;
+}
+body form .form-wraper small {
+  visibility: hidden;
+}
+body form .form-wraper .error {
+  visibility: hidden;
+  position: absolute;
+  right: 5px;
+  top: 44px;
+}
+body form .form-wraper .success {
+  visibility: hidden;
+  position: absolute;
+  right: 5px;
+  top: 44px;
+}
+body form .form-wraper .i-success {
+  color: green;
+  visibility: visible;
+}
+body form .form-wraper .i-error {
+  color: red;
+  visibility: visible;
+}
+body form .form-wraper .error-message {
+  color: red;
+  visibility: visible;
+}
+body form h4 {
+  text-align: center;
+}
+body form .submit-btn {
+  color: #ffff;
+  background-color: #725482;
+  width: 100%;
+  border: none;
+  margin: 20px 0 20px 0;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}

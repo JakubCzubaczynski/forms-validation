@@ -1,0 +1,71 @@
+body{
+    
+    background-color:#bca7c7;
+   
+    .first-form{
+        height:100vh;
+    }.sign-up{
+        min-width:430px;
+    }
+    form{
+        border-radius: 5px;
+        background-color: #ffff;
+        padding:20px 40px 20px 40px;
+        display: inline-block;
+        .error-message{
+            
+        }
+        .input-success{
+             border:2px solid green;
+           }
+           .input-error{
+            border:2px solid red;
+          }
+       
+        
+      .form-wraper{
+          position: relative;
+          small{
+              visibility: hidden;
+          }
+          .error{
+              visibility: hidden;
+              position: absolute;
+              right:5px;
+              top:44px;
+          }
+          .success{
+              visibility: hidden;
+            position: absolute;
+            right:5px;
+            top:44px;
+        }
+        .i-success{
+            color:green;
+            visibility: visible;
+        }
+        .i-error{
+            color:red;
+            visibility: visible;
+        }
+        .error-message{
+            color:red;
+            visibility: visible;
+        }
+        
+      }
+        h4{
+            text-align: center;
+        }
+        .submit-btn{
+            color:#ffff;
+            background-color: #725482;
+    width: 100%;
+    border: none;
+    margin:20px 0 20px 0;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+        }
+    }
+}
+
