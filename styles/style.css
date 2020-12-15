@@ -19,33 +19,33 @@ body form .input-success {
 body form .input-error {
   border: 2px solid red;
 }
-body form .form-wraper {
+body form .form-wrapper {
   position: relative;
 }
-body form .form-wraper small {
+body form .form-wrapper small {
   visibility: hidden;
 }
-body form .form-wraper .error {
-  visibility: hidden;
-  position: absolute;
-  right: 5px;
-  top: 44px;
-}
-body form .form-wraper .success {
+body form .form-wrapper .error {
   visibility: hidden;
   position: absolute;
   right: 5px;
   top: 44px;
 }
-body form .form-wraper .i-success {
+body form .form-wrapper .success {
+  visibility: hidden;
+  position: absolute;
+  right: 5px;
+  top: 44px;
+}
+body form .form-wrapper .i-success {
   color: green;
   visibility: visible;
 }
-body form .form-wraper .i-error {
+body form .form-wrapper .i-error {
   color: red;
   visibility: visible;
 }
-body form .form-wraper .error-message {
+body form .form-wrapper .error-message {
   color: red;
   visibility: visible;
 }
