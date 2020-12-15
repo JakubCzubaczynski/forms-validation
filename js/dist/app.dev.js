@@ -3,14 +3,18 @@
 $(document).ready(function () {
   $("form").submit(function (e) {
     e.preventDefault();
-    checkInputs();
+    checkInputs($(this).attr("id"));
+  });
+  $("#on-key input").keyup(function () {
+    var id = $(this).parent().parent().parent().attr("id");
+    checkInputs(id);
   });
 
-  function checkInputs() {
-    var username = $('.sign-up [name="username"]');
-    var email = $('.sign-up [name="email"]');
-    var password = $('.sign-up [name="password"]');
-    var confirmPassword = $('.sign-up [name="password-confirm"]');
+  function checkInputs(id) {
+    var username = $("#".concat(id, " [name=\"username\"]"));
+    var email = $("#".concat(id, "  [name=\"email\"]"));
+    var password = $("#".concat(id, " [name=\"password\"]"));
+    var confirmPassword = $("#".concat(id, "  [name=\"password-confirm\"]"));
 
     if (username.val() == '') {
       setErrorFor(username, 'Username cannot be blank');
@@ -41,11 +45,6 @@ $(document).ready(function () {
     }
   }
 
-  function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
-
   function setSuccessFor(input, message) {
     input.parent().children('small').removeClass('error-message');
     input.removeClass("input-error");
@@ -61,5 +60,10 @@ $(document).ready(function () {
     input.parent().children('i.error').addClass('i-error');
     input.parent().children('small').addClass('error-message').html(message);
     console.log("error");
+  }
+
+  function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 });

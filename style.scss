@@ -5,16 +5,14 @@ body{
     .first-form{
         height:100vh;
     }.sign-up{
-        min-width:430px;
+        min-width:90%;
     }
     form{
         border-radius: 5px;
         background-color: #ffff;
         padding:20px 40px 20px 40px;
         display: inline-block;
-        .error-message{
-            
-        }
+       
         .input-success{
              border:2px solid green;
            }

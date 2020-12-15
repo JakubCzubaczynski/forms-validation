@@ -4,16 +4,23 @@ $(document).ready(function () {
   $("form").submit(function (e) {
     e.preventDefault();
 
-    checkInputs();
+    checkInputs($(this).attr("id"));
 
   });
 
-  function checkInputs() {
+  $( "#on-key input" ).keyup(function() {
+    let id = $(this).parent().parent().parent().attr("id")
+    checkInputs(id);
+  });
 
-    const username = $('.sign-up [name="username"]');
-    const email = $('.sign-up [name="email"]');
-    const password = $('.sign-up [name="password"]');
-    const confirmPassword = $('.sign-up [name="password-confirm"]');
+
+
+  function checkInputs(id) {
+
+    const username = $(`#${id} [name="username"]`);
+    const email = $(`#${id}  [name="email"]`);
+    const password = $(`#${id} [name="password"]`);
+    const confirmPassword = $(`#${id}  [name="password-confirm"]`);
 
     if (username.val() == '') {
       setErrorFor(username, 'Username cannot be blank');
@@ -52,15 +59,6 @@ $(document).ready(function () {
 
 
   }
- 
-
-
-
-
-  function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
 
   function setSuccessFor(input, message) {
     input.parent().children('small').removeClass('error-message');
@@ -82,7 +80,10 @@ $(document).ready(function () {
     console.log("error");
   }
 
-
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
 
 
