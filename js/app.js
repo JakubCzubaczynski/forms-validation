@@ -77,7 +77,7 @@ $(document).ready(function () {
     input.parent().children('i.error').addClass('i-error')
 
     input.parent().children('small').addClass('error-message').html(message);
-    console.log("error");
+    
   }
 
   function validateEmail(email) {
