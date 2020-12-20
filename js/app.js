@@ -1,21 +1,20 @@
 $(document).ready(function () {
 
-
+  //ON SUBMIT
   $("form").submit(function (e) {
     e.preventDefault();
-
     checkInputs($(this).attr("id"));
-
   });
 
-  $( "#on-key input" ).keyup(function() {
+  //ON KEY-UP
+  $("#on-key input").keyup(function () {
     let id = $(this).parent().parent().parent().attr("id")
     checkInputs(id);
   });
 
 
 
-  function checkInputs(id) {
+  const checkInputs = (id) => {
 
     const username = $(`#${id} [name="username"]`);
     const email = $(`#${id}  [name="email"]`);
@@ -24,9 +23,9 @@ $(document).ready(function () {
 
     if (username.val() == '') {
       setErrorFor(username, 'Username cannot be blank');
-      
+
     } else {
-         
+
       setSuccessFor(username);
     }
 
@@ -48,19 +47,17 @@ $(document).ready(function () {
 
     if (confirmPassword.val() == '') {
       setErrorFor(confirmPassword, 'Password cannot be blank');
-    } else if(password.val()!=confirmPassword.val()) {
+    } else if (password.val() != confirmPassword.val()) {
 
-      setErrorFor(confirmPassword,'Passwords does not match');
-    }else{
+      setErrorFor(confirmPassword, 'Passwords does not match');
+    } else {
       setSuccessFor(confirmPassword);
-      
-    }
-   
 
+    }
 
   }
 
-  function setSuccessFor(input, message) {
+  const setSuccessFor = (input) => {
     input.parent().children('small').removeClass('error-message');
     input.removeClass("input-error");
     input.addClass("input-success");
@@ -70,17 +67,17 @@ $(document).ready(function () {
 
   }
 
-  function setErrorFor(input, message) {
+  const setErrorFor = (input, message) => {
     input.removeClass("input-success");
     input.addClass("input-error");
     input.parent().children('i.success').removeClass('i-success')
     input.parent().children('i.error').addClass('i-error')
 
     input.parent().children('small').addClass('error-message').html(message);
-    
+
   }
 
-  function validateEmail(email) {
+  const validateEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }

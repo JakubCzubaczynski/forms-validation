@@ -1,16 +1,18 @@
 "use strict";
 
 $(document).ready(function () {
+  //ON SUBMIT
   $("form").submit(function (e) {
     e.preventDefault();
     checkInputs($(this).attr("id"));
-  });
+  }); //ON KEY-UP
+
   $("#on-key input").keyup(function () {
     var id = $(this).parent().parent().parent().attr("id");
     checkInputs(id);
   });
 
-  function checkInputs(id) {
+  var checkInputs = function checkInputs(id) {
     var username = $("#".concat(id, " [name=\"username\"]"));
     var email = $("#".concat(id, "  [name=\"email\"]"));
     var password = $("#".concat(id, " [name=\"password\"]"));
@@ -43,26 +45,26 @@ $(document).ready(function () {
     } else {
       setSuccessFor(confirmPassword);
     }
-  }
+  };
 
-  function setSuccessFor(input, message) {
+  var setSuccessFor = function setSuccessFor(input) {
     input.parent().children('small').removeClass('error-message');
     input.removeClass("input-error");
     input.addClass("input-success");
     input.parent().children('i.error').removeClass('i-error');
     input.parent().children('i.success').addClass('i-success');
-  }
+  };
 
-  function setErrorFor(input, message) {
+  var setErrorFor = function setErrorFor(input, message) {
     input.removeClass("input-success");
     input.addClass("input-error");
     input.parent().children('i.success').removeClass('i-success');
     input.parent().children('i.error').addClass('i-error');
     input.parent().children('small').addClass('error-message').html(message);
-  }
+  };
 
-  function validateEmail(email) {
+  var validateEmail = function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-  }
+  };
 });
