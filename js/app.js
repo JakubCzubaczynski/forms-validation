@@ -12,9 +12,7 @@ $(document).ready(function () {
     checkInputs(id);
   });
 
-
-
-  const checkInputs = (id) => {
+const checkInputs = (id) => {
 
     const username = $(`#${id} [name="username"]`);
     const email = $(`#${id}  [name="email"]`);
@@ -63,25 +61,19 @@ $(document).ready(function () {
     input.addClass("input-success");
     input.parent().children('i.error').removeClass('i-error')
     input.parent().children('i.success').addClass('i-success')
-
-
-  }
+}
 
   const setErrorFor = (input, message) => {
     input.removeClass("input-success");
     input.addClass("input-error");
     input.parent().children('i.success').removeClass('i-success')
     input.parent().children('i.error').addClass('i-error')
-
     input.parent().children('small').addClass('error-message').html(message);
-
-  }
+}
 
   const validateEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-
-
 
 })
